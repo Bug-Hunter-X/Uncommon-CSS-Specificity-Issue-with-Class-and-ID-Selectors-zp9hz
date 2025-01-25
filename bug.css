@@ -1,0 +1,18 @@
+The following CSS code snippet demonstrates an uncommon error related to the specificity of CSS selectors:
+
+```css
+.container {
+  width: 200px;
+}
+
+#container {
+  width: 300px;
+}
+
+.container #container {
+  width: 400px;
+}
+
+```
+
+This error involves the unexpected behavior when an element has both a class and an ID. The ID selector (`#container`) is more specific than the class selector (`.container`), so it would normally override the class selector. However, the combined selector (`.container #container`) introduces an unintended interaction. This selector applies only when an element with the ID `container` is nested inside an element with the class `container`.  In typical scenarios, a single element would not have both a class and an ID directly applied, so this rule would be ineffective unless nested in a very specific structure. This unusual specificity can lead to unexpected visual outcomes.
